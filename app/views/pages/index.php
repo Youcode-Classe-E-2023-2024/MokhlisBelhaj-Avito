@@ -2,4 +2,5 @@
     <?php
     echo$data['title'];
     ?>
+  
 </h1>
