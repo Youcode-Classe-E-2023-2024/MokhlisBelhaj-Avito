@@ -4,8 +4,8 @@ class Pages extends Controller{
        
     }
     public function index(){
-      
-       $this->view('pages/index',['title'=>'welcome']);
+   
+       $this->view('libraries/database');
     }
  
 }
