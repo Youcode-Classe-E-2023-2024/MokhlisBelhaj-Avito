@@ -41,9 +41,6 @@
                 <!-- dashbaord -->
             <a href="<?php echo URL ?>pages/dashboard">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="50%" height="100%" viewBox="0 0 256 256" xml:space="preserve">
-
-                        <defs>
-                        </defs>
                         <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
                             <path d="M 27.462 26.484 l -6.619 7.277 l -2.539 -3.99 c -0.297 -0.465 -0.915 -0.604 -1.381 -0.307 s -0.603 0.915 -0.307 1.381 l 3.242 5.094 c 0.167 0.263 0.448 0.433 0.758 0.459 c 0.028 0.003 0.057 0.004 0.085 0.004 c 0.28 0 0.549 -0.118 0.74 -0.327 l 7.5 -8.245 c 0.372 -0.409 0.342 -1.041 -0.067 -1.413 C 28.467 26.045 27.833 26.077 27.462 26.484 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
                             <path d="M 27.462 47.48 l -6.619 7.277 l -2.539 -3.99 c -0.297 -0.465 -0.915 -0.603 -1.381 -0.307 c -0.466 0.297 -0.603 0.915 -0.307 1.381 l 3.242 5.094 c 0.167 0.263 0.448 0.433 0.758 0.459 c 0.028 0.003 0.057 0.004 0.085 0.004 c 0.28 0 0.549 -0.118 0.74 -0.327 l 7.5 -8.245 c 0.372 -0.408 0.342 -1.041 -0.067 -1.412 C 28.467 47.042 27.833 47.073 27.462 47.48 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />

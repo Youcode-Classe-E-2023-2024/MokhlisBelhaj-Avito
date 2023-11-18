@@ -17,7 +17,10 @@ class Pages extends Controller{
       $data=[
         'post'=>$post
       ];
-       $this->view('pages/dashboard');
+       $this->view('pages/dashboard',$data);
+    }
+    public function add(){
+        $this->view('pages/forme');
     }
  
 }

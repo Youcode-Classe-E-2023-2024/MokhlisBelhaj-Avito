@@ -14,6 +14,8 @@ public function __construct(){
             $this->createTable();
             $this->insertPost();
         }
+        
+   
     }
 
     private function createTable() {
