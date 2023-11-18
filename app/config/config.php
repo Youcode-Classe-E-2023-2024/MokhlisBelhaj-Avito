@@ -6,4 +6,4 @@ define('APPROOT', dirname(dirname( __FILE__)));
 define('URL','http://localhost/MokhlisBelhaj-Avito/');
 
 //Site Name
-define('SITE_NAME','AVITO');
+define('SITENAME','AVITO');

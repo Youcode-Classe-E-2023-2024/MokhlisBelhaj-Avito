@@ -7,7 +7,5 @@ class Pages extends Controller{
       
        $this->view('pages/index',['title'=>'welcome']);
     }
-    public function about($id){
-       
-    }
+ 
 }
