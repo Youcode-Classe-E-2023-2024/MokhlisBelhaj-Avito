@@ -1,7 +1,13 @@
 <?php
-class Database
-{
-    private $host = DB_host;
+	/* 
+   *  PDO DATABASE CLASS
+   *  Connects Database Using PDO
+	 *  Creates Prepeared Statements
+	 * 	Binds params to values
+	 *  Returns rows and results
+   */
+class Database {
+	private $host = DB_HOST;
     private $user = DB_USER;
     private $pass = DB_PASS;
     private $dbname = SITENAME;
@@ -9,8 +15,8 @@ class Database
     private $dbh;
     private $error;
     private $stmt;
-
-    public function __construct()
+	
+	public function __construct()
     {
       
         $dsn = 'mysql:host=' . $this->host;
@@ -32,7 +38,7 @@ class Database
         if (!$this->databaseExists()) {
             // If the database doesn't exist, create it
             
-            $this->createDatabase();
+            $this->createDatabaseAndTables();
             
 
             // Reconnect to the specific database
@@ -45,27 +51,54 @@ class Database
         }
       
     }
+	    // Check if the database exists
+		private function databaseExists()
+		{
+			$this->query("SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = :databaseName");
+			$this->bind(':databaseName', $this->dbname);
+			$result = $this->single();
+	
+			return !empty($result);
+		}
 
-    // Check if the database exists
-    private function databaseExists()
-    {
-        $this->query("SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = :databaseName");
-        $this->bind(':databaseName', $this->dbname);
-        $result = $this->single();
-
-        return !empty($result);
-    }
-
-    // Create the database
-    private function createDatabase()
-    {
-        $this->query("CREATE DATABASE $this->dbname");
-        $this->execute();
-    }
-
- 
+		 // Create the database
+		 private function createDatabaseAndTables()
+		 {
+			 // Create the database
+			 $this->query("CREATE DATABASE IF NOT EXISTS $this->dbname");
+			 $this->execute();
+		 
+			 // Switch to the created database
+			 $this->query("USE $this->dbname");
+			 $this->execute();
+		 
+			 // Create the 'users' table
+			 $this->query('CREATE TABLE IF NOT EXISTS `users` (
+				 `id` int(11) NOT NULL AUTO_INCREMENT,
+				 `name` varchar(255) NOT NULL,
+				 `email` varchar(255) NOT NULL,
+				 `password` varchar(255) NOT NULL,
+				 PRIMARY KEY (`id`)
+			   ) 
+			 ');
+			 $this->execute();
+		 
+			 // Create the 'posts' table with a foreign key relationship to the 'users' table
+			 $this->query('CREATE TABLE IF NOT EXISTS `posts` (
+				 `id` int(11) NOT NULL AUTO_INCREMENT,
+				 `user_id` int(11) NOT NULL,
+				 `title` varchar(255) NOT NULL,
+				 `body` text NOT NULL,
+				 `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+				 PRIMARY KEY (`id`),
+				 CONSTRAINT `fk_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+			   ) 
+			 ');
+			 $this->execute();
+		 }
+		 
+	
 	// Prepare statement with query
-
 	public function query($query) {
 		$this->stmt = $this->dbh->prepare($query);
 	}
@@ -91,11 +124,9 @@ class Database
 	}
 	
 	// Execute the prepared statement
-	
-    public function execute(){
-       
-        return $this->stmt->execute();
-    }
+	public function execute(){
+		return $this->stmt->execute();
+	}
 	
 	// Get result set as array of objects
 	public function resultset(){

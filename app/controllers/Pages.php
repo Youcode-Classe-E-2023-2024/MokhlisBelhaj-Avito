@@ -1,26 +1,33 @@
 <?php
-class Pages extends Controller{
-    protected $postModel;
+  class Pages extends Controller{
     public function __construct(){
-        $this->postModel = $this->model('Post');
-       
+     
     }
+
+    // Load Homepage
     public function index(){
-        $post=$this->postModel->getpost();
-      $data=[
-        'post'=>$post
+      // If logged in, redirect to posts
+      if(isset($_SESSION['user_id'])){
+        redirect('posts');
+      }
+
+      //Set Data
+      $data = [
+        'title' => 'Welcome To avito',
+        'description' => 'Simple social network built on the TraversyMVC PHP framework'
       ];
-       $this->view('pages/index',$data);
+
+      // Load homepage/index view
+      $this->view('pages/index', $data);
     }
-    public function dashboard(){
-        $post=$this->postModel->getpost();
-      $data=[
-        'post'=>$post
+
+    public function about(){
+      //Set Data
+      $data = [
+        'version' => '1.0.0'
       ];
-       $this->view('pages/dashboard',$data);
+
+      // Load about view
+      $this->view('pages/about', $data);
     }
-    public function add(){
-        $this->view('pages/forme');
-    }
- 
-}
+  }
