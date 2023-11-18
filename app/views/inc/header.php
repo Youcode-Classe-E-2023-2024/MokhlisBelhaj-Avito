@@ -14,7 +14,7 @@
     <header class="header sticky top-0 bg-white shadow-md flex items-center justify-between px-8 py-02">
         <!-- logo -->
     
-            <a href="">
+            <a href="<?php echo URL ?>pages">
                 <svg width="322" height="112" xmlns="http://www.w3.org/2000/svg">
                     <g transform="translate(14 14)">
                         <circle cx="60.65" cy="60.55" r="22.45" fill="#97CF26" />
@@ -30,7 +30,7 @@
         <nav class="nav font-semibold text-lg">
             <ul class="flex items-center">
                 <li class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
-                    <a href="">Produits</a>
+                    <a href="<?php echo URL ?>pages">Produits</a>
                 </li>
             </ul>
         </nav>
@@ -39,7 +39,7 @@
         <div class="w-3/12 flex justify-end ">
             <div class="flex justify-end ">
                 <!-- dashbaord -->
-            <a href="">
+            <a href="<?php echo URL ?>pages/dashboard">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="50%" height="100%" viewBox="0 0 256 256" xml:space="preserve">
 
                         <defs>

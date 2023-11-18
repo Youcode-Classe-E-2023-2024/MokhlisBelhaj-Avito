@@ -1,4 +1,5 @@
 <?php
+
 //load config 
 require_once'config/config.php'; 
 //Autoload core libraries
